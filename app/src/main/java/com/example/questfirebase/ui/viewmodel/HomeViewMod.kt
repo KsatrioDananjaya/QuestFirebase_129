@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -30,13 +30,13 @@ class HomeViewMod(
         viewModelScope.launch {
             mhs.getAllMahasiswa()
                 .onStart{
-                    mhsUIState = HomeUiState.Loading
+                    mhsUiState = HomeUiState.Loading
                 }
                 .catch{
-                    mhsUIState = HomeUiState.Error(it)
+                    mhsUiState = HomeUiState.Error(it)
                 }
                 .collect{
-                    mhsUIState = if (it.isEmpty()) {
+                    mhsUiState = if (it.isEmpty()) {
                         HomeUiState.Error(Exception("Belum ada daftar mahasiswa"))
                     }else{
                         HomeUiState.Success(it)
@@ -44,4 +44,15 @@ class HomeViewMod(
                 }
         }
     }
+    fun deleteMahasiswa(mahasiswa: Mahasiswa){
+        viewModelScope.launch {
+            try {
+                mhs.deleteMahasiswa(mahasiswa)
+            }catch (e: Exception){
+                mhsUiState = HomeUiState.Error(e)
+            }
+        }
+
+    }
 }
+
