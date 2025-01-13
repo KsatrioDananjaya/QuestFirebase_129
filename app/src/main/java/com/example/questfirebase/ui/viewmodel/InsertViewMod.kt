@@ -75,7 +75,10 @@ class InsertViewMod(
         gender = jenisKelamin,
         alamat = alamat,
         kelas = kelas,
-        angkatan = angkatan
+        angkatan = angkatan,
+        pembimbing1 = pembimbing1,
+        skripsi = skripsi,
+        pembimbing2 = pembimbing2,
     )
 
     sealed class FormState{
@@ -91,7 +94,10 @@ class InsertViewMod(
         val jenisKelamin: String = "",
         val alamat: String = "",
         val kelas: String = "",
-        val angkatan: String = ""
+        val angkatan: String = "",
+        val pembimbing1: String = "",
+        val skripsi: String = "",
+        val pembimbing2: String = "",
     )
 
     data class FormErrorState(
