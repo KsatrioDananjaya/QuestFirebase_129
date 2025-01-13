@@ -7,7 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 interface  AppContainer{
     val repoMhs: RepoMhs
 }
-class MhsContainer {
+class MhsContainer : AppContainer {
     private  val firebase: FirebaseFirestore = FirebaseFirestore.getInstance()
     override val repoMhs : RepoMhs by lazy {
         NetworkRepoMhs(firebase)
