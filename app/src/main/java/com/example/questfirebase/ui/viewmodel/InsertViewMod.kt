@@ -106,10 +106,14 @@ class InsertViewMod(
         val jenisKelamin: String? = null,
         val alamat: String? = null,
         val kelas: String? = null,
-        val angkatan: String? = null
+        val angkatan: String? = null,
+        val skripsi: String? = null,
+        val pembimbing2: String? = null,
+        val pembimbing1: String? = null,
     ){
         fun isValid() : Boolean{
             return nim == null && nama == null && jenisKelamin == null && alamat == null && kelas == null && angkatan == null
+                    && skripsi == null && pembimbing1 == null && pembimbing2 == null
         }
     }
 

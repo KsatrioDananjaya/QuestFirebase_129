@@ -11,7 +11,7 @@ data class Mahasiswa (
     val pembimbing1: String,
     val pembimbing2: String,
 ){
-    //constructor(
+    constructor(
 
-    //): this("", "", "", "", "", "", "", "", "")
+    ): this("", "", "", "", "", "", "", "", "")
 }
