@@ -20,7 +20,7 @@ sealed class HomeUiState {
 
 class HomeViewMod(
     private val mhs: RepoMhs
-) {
+):ViewModel() {
     var mhsUiState: HomeUiState by mutableStateOf(HomeUiState.Loading)
     private set
     init {
